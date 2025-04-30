@@ -1,68 +1,60 @@
-###Scripting Engine
-A Spring Boot application to execute JavaScript and Python scripts dynamically within the JVM, as per the APIwiz assignment.
+# Scripting Engine
 
-##Objective
-Develop a Java-based utility to run JavaScript and Python scripts, returning results as Java objects, with support for external libraries and optional file-based script execution.
+A Spring Boot application to execute **JavaScript** and **Python** scripts dynamically within the JVM, as per the APIwiz assignment.
 
-##Approach
-Framework: Spring Boot for modularity and REST API exposure.
-JavaScript: Uses GraalVM's graal.js engine for modern JavaScript support.
-Python: Uses Jython for Python execution within the JVM.
-Thread-Safety: Each script execution creates a new engine/interpreter instance to ensure thread-safety.
-Library Support: Loads lodash.js for JavaScript and math.py for Python as sample libraries.
+---
 
-##Tools and Libraries
-Spring Boot: 3.3.4 (Web starter for REST API).
-GraalVM JS: 24.0.2 (for JavaScript execution).
-Jython: 2.7.4 (for Python execution).
-Java: 17.
+## 📌 Objective
 
-##Setup Instructions
-Prerequisites:
-Java 17
-Maven 3.8+
+Develop a Java-based utility to run JavaScript and Python scripts, returning results as Java objects. The engine should support:
 
+- Raw script input
+- Optional file-based script execution
+- Use of standard and third-party libraries (within JVM compatibility)
 
-Build:mvn clean install
+---
 
-Run:mvn spring-boot:run
+## 🧩 Approach
 
+- **Framework**: Spring Boot for modular service design and REST API exposure.
+- **JavaScript**: Uses **GraalVM's graal.js** engine for modern and performant JavaScript support.
+- **Python**: Uses **Jython** to execute Python 2.7 scripts within the JVM.
+- **Thread-Safety**: A fresh interpreter/engine instance is created for each script execution.
+- **Library Support**: Demonstrates loading of `lodash.js` (JavaScript) and `math.py` (Python) as sample libraries.
 
-##Test the API:
-Endpoint: POST http://localhost:8080/api/script/run
-Sample Request Body:{
-    "language": "JavaScript",
-    "script": "_uniq([1, 2, 2, 3])",
-    "isFile": false
-}
+---
 
-{
-    "language": "python",
-    "script": "import math\nresult = math.sqrt(16)",
-    "isFile": false
-}
+## 🛠 Tools and Libraries
 
+| Tool         | Version  | Purpose                         |
+|--------------|----------|----------------------------------|
+| Spring Boot  | 3.3.4    | Web starter for REST API         |
+| GraalVM JS   | 24.0.2   | JavaScript execution             |
+| Jython       | 2.7.4    | Python execution in JVM          |
+| Java         | 17       | Language version used            |
 
+---
 
+## ⚙️ Setup Instructions
 
+### ✅ Prerequisites
 
-##Assumptions
-Python scripts must set a result variable to capture the output.
-Library paths (lodash.js, math.py) are hardcoded for simplicity.
-File-based script execution assumes valid file paths relative to the project root.
+- Java 17
+- Maven 3.8+
 
-##Design Decisions
-GraalVM JS over Nashorn: Nashorn is deprecated; GraalVM offers better performance and modern JavaScript support.
-Jython for Python: Ensures execution within the JVM, avoiding external processes.
-Thread-Safety: New engine/interpreter per request to avoid shared state issues.
-REST API: Simplifies testing and interaction with the scripting engine.
-Library Loading: Preloads sample libraries; can be extended for dynamic library paths.
+### 🔨 Build the Project
 
-##Limitations
-Jython supports Python 2.7 and limited third-party libraries (e.g., no numpy).
-Library loading is static; dynamic library imports require additional configuration.
+```bash
+mvn clean install
 
-##Testing
-Use the provided REST endpoint with tools like Postman or curl.
-Test cases include basic arithmetic, library usage (_uniq for JS, math.sqrt for Python), and file-based scripts.
+# 🧠 Script Execution API
+
+This application provides a REST API to execute JavaScript and Python scripts using JVM-based engines.
+
+---
+
+## ▶️ Run the Application
+
+```bash
+mvn spring-boot:run
 
