@@ -58,3 +58,60 @@ This application provides a REST API to execute JavaScript and Python scripts us
 ```bash
 mvn spring-boot:run
 
+
+📮 API Usage
+Endpoint
+
+POST http://localhost:8080/api/script/run
+
+Sample Request Body
+
+JavaScript Example
+
+{
+  "language": "JavaScript",
+  "script": "_uniq([1, 2, 2, 3])",
+  "isFile": false
+}
+
+Python Example
+{
+  "language": "python",
+  "script": "import math\nresult = math.sqrt(16)",
+  "isFile": false
+}
+
+📎 Assumptions
+Python scripts must assign the output to a variable named result.
+
+Library paths like lodash.js (for JavaScript) and math.py (for Python) are hardcoded for simplicity.
+
+File-based script execution assumes paths are relative to the project root directory.
+
+Design Decisions
+✅ GraalVM JS is used instead of deprecated Nashorn for modern and efficient JavaScript support.
+
+✅ Jython is used to run Python scripts directly on the JVM without using external processes.
+
+✅ A new engine instance is created for each execution to ensure thread safety.
+
+✅ A simple REST API layer is exposed for easy integration and testing.
+
+✅ Library loading is static, but the structure allows future extension.
+
+
+Testing
+
+You can test the API using tools like:
+Postman
+Curl
+Any HTTP client
+
+Test Scripts Include:
+Basic arithmetic operations
+Utility functions like:
+
+_uniq from Lodash (JS)
+math.sqrt (Python)
+
+File-based script execution
