@@ -42,6 +42,10 @@ Develop a Java-based utility to run JavaScript and Python scripts, returning res
 - Java 17
 - Maven 3.8+
 
+## 🖼️ Example Screenshot
+
+![Script Engine Screenshot](images/Screenshot (26).png)
+
 ### 🔨 Build the Project
 
 ```bash
@@ -115,8 +119,3 @@ _uniq from Lodash (JS)
 math.sqrt (Python)
 
 File-based script execution
-
-
-## 🖼️ Example Screenshot
-
-![Script Engine Screenshot](images/Screenshot (26).png)
