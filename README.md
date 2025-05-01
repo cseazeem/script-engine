@@ -48,24 +48,11 @@ Develop a Java-based utility to run JavaScript and Python scripts, returning res
 ![Script Engine Screenshot](images/Screenshot%20(27).png)
 ![Script Engine Screenshot](images/Screenshot%20(28).png)
 
-### 🔨 Build the Project
-
-```bash
-mvn clean install
-
 # 🧠 Script Execution API
 
 This application provides a REST API to execute JavaScript and Python scripts using JVM-based engines.
 
----
-
-## ▶️ Run the Application
-
-```bash
-mvn spring-boot:run
-
-
-📮 API Usage
+# 📮 API Usage
 Endpoint
 
 POST http://localhost:8080/api/script/run
@@ -87,7 +74,7 @@ Python Example
   "isFile": false
 }
 
-📎 Assumptions
+# 📎 Assumptions
 Python scripts must assign the output to a variable named result.
 
 Library paths like lodash.js (for JavaScript) and math.py (for Python) are hardcoded for simplicity.
@@ -121,3 +108,8 @@ _uniq from Lodash (JS)
 math.sqrt (Python)
 
 File-based script execution
+
+### 🔨 Build the Project
+
+```bash
+mvn clean install
