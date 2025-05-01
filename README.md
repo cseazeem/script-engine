@@ -16,11 +16,11 @@ Develop a Java-based utility to run JavaScript and Python scripts, returning res
 
 ## 🧩 Approach
 
-- **Framework**: Spring Boot for modular service design and REST API exposure.
-- **JavaScript**: Uses **GraalVM's graal.js** engine for modern and performant JavaScript support.
-- **Python**: Uses **Jython** to execute Python 2.7 scripts within the JVM.
-- **Thread-Safety**: A fresh interpreter/engine instance is created for each script execution.
-- **Library Support**: Demonstrates loading of `lodash.js` (JavaScript) and `math.py` (Python) as sample libraries.
+- **Framework**: Spring Boot for modularity and REST API exposure.
+- **JavaScript**: Leverages GraalVM's graal.js engine for contemporary JavaScript support.
+- **Python**: Leverages **Jython** for Python execution inside the JVM.
+- **Thread-Safety**: Every script run has a new engine/interpreter instance to provide thread-safety..
+- **Library Support**: Loads `lodash.js` for JavaScript and `math.py` for Python as sample libraries.
 
 ---
 
@@ -82,23 +82,21 @@ Library paths like lodash.js (for JavaScript) and math.py (for Python) are hardc
 File-based script execution assumes paths are relative to the project root directory.
 
 # Design Decisions
-✅ GraalVM JS is used instead of deprecated Nashorn for modern and efficient JavaScript support.
+✅ Nashorn is deprecated; GraalVM has improved performance and support for modern JavaScript.
 
-✅ Jython is used to run Python scripts directly on the JVM without using external processes.
+✅ Jython for Python: Guarantees execution in the JVM, eluding external processes.
 
-✅ A new engine instance is created for each execution to ensure thread safety.
+✅ Thread-Safety: Engine/interpreter instance per request to prevent shared state problems.
 
-✅ A simple REST API layer is exposed for easy integration and testing.
+✅ REST API: Ease of testing and communication with scripting engine.
 
-✅ Library loading is static, but the structure allows future extension.
+✅ Library Loading: Prereload sample libraries; may be extended to dynamic library path.
 
 
 Testing
 
-You can test the API using tools like:
-Postman
-Curl
-Any HTTP client
+Utilize the available REST endpoint via tools such as Postman or curl.
+Test cases cover simple arithmetic, library calls (_uniq for JS, math.sqrt for Python), and file-based scripts.
 
 Test Scripts Include:
 Basic arithmetic operations
