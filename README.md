@@ -115,3 +115,8 @@ _uniq from Lodash (JS)
 math.sqrt (Python)
 
 File-based script execution
+
+
+## 🖼️ Example Screenshot
+
+![Script Engine Screenshot](images/Screenshot (26).png)
