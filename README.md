@@ -48,11 +48,11 @@ Develop a Java-based utility to run JavaScript and Python scripts, returning res
 ![Script Engine Screenshot](images/Screenshot%20(27).png)
 ![Script Engine Screenshot](images/Screenshot%20(28).png)
 
-# 🧠 Script Execution API
+🧠 Script Execution API
 
 This application provides a REST API to execute JavaScript and Python scripts using JVM-based engines.
 
-# 📮 API Usage
+📮 API Usage
 Endpoint
 
 POST http://localhost:8080/api/script/run
@@ -81,7 +81,7 @@ Library paths like lodash.js (for JavaScript) and math.py (for Python) are hardc
 
 File-based script execution assumes paths are relative to the project root directory.
 
-Design Decisions
+# Design Decisions
 ✅ GraalVM JS is used instead of deprecated Nashorn for modern and efficient JavaScript support.
 
 ✅ Jython is used to run Python scripts directly on the JVM without using external processes.
