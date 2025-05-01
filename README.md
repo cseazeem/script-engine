@@ -6,8 +6,7 @@ A Spring Boot application to execute **JavaScript** and **Python** scripts dynam
 
 ## 📌 Objective
 
-Develop a Java-based utility to run JavaScript and Python scripts, returning results as Java objects. The engine should support:
-
+Create a Java utility to run JavaScript and Python scripts, with results returned as Java objects, supporting external libraries and optional file-based script running.
 - Raw script input
 - Optional file-based script execution
 - Use of standard and third-party libraries (within JVM compatibility)
