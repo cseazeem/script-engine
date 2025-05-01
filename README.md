@@ -44,7 +44,7 @@ Develop a Java-based utility to run JavaScript and Python scripts, returning res
 
 ## 🖼️ Example Screenshot
 
-![Script Engine Screenshot](images/Screenshot (26).png)
+![Script Engine Screenshot](images/Screenshot (26))
 
 ### 🔨 Build the Project
 
